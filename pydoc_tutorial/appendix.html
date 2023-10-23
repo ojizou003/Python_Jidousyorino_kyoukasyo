@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta property="og:title" content="16. 付録" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.python.org/3/tutorial/appendix.html" />
+<meta property="og:site_name" content="Python documentation" />
+<meta property="og:description" content="対話モード: エラー処理: エラーが発生すると、インタプリタはエラーメッセージとスタックトレース (stack trace) を出力します。対話モードにいるときは、インタプリタは一次プロンプトに戻ります; スクリプトをファイルから実行しているときは、インタプリタはスタックトレースを出力した後、非ゼロの終了ステータスで終了します。 ( try 文の except 節で処理された例外は、ここでい..." />
+<meta property="og:image" content="https://docs.python.org/3/_static/og-image.png" />
+<meta property="og:image:alt" content="Python documentation" />
+<meta name="description" content="対話モード: エラー処理: エラーが発生すると、インタプリタはエラーメッセージとスタックトレース (stack trace) を出力します。対話モードにいるときは、インタプリタは一次プロンプトに戻ります; スクリプトをファイルから実行しているときは、インタプリタはスタックトレースを出力した後、非ゼロの終了ステータスで終了します。 ( try 文の except 節で処理された例外は、ここでい..." />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta name="theme-color" content="#3776ab" />
+
+    <title>16. 付録 &#8212; Python 3.12.0 ドキュメント</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?digest=b37c26da2f7529d09fe70b41c4b2133fe4931a90" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Python 3.12.0 ドキュメント 内を検索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Python のセットアップと利用" href="../using/index.html" />
+    <link rel="prev" title="15. 浮動小数点演算、その問題と制限" href="floatingpoint.html" />
+    <link rel="canonical" href="https://docs.python.org/3/tutorial/appendix.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="stylesheet" href="../_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script>
+            <script type="text/javascript" src="../_static/search-focus.js"></script>
+            <script type="text/javascript" src="../_static/themetoggle.js"></script> 
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        <label for="menuToggler" class="toggler__label">
+            <span></span>
+        </label>
+        <span class="nav-items-wrapper">
+            <a href="https://www.python.org/" class="nav-logo">
+                <img src="../_static/py.svg" alt="Logo"/>
+            </a>
+            <span class="version_switcher_placeholder"></span>
+            <form role="search" class="search" action="../search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="クイック検索" aria-label="クイック検索" type="search" name="q" />
+                <input type="submit" value="検索"/>
+            </form>
+        </span>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+            
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label>
+  <div>
+    <h3><a href="../contents.html">目次</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">16. 付録</a><ul>
+<li><a class="reference internal" href="#interactive-mode">16.1. 対話モード</a><ul>
+<li><a class="reference internal" href="#error-handling">16.1.1. エラー処理</a></li>
+<li><a class="reference internal" href="#executable-python-scripts">16.1.2. 実行可能な Python スクリプト</a></li>
+<li><a class="reference internal" href="#the-interactive-startup-file">16.1.3. 対話モード用の起動時実行ファイル</a></li>
+<li><a class="reference internal" href="#the-customization-modules">16.1.4. カスタマイズ用モジュール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="floatingpoint.html"
+                          title="前の章へ"><span class="section-number">15. </span>浮動小数点演算、その問題と制限</a></p>
+  </div>
+  <div>
+    <h4>次のトピックへ</h4>
+    <p class="topless"><a href="../using/index.html"
+                          title="次の章へ">Python のセットアップと利用</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">バグ報告</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/main/Doc/tutorial/appendix.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="../using/index.html" title="Python のセットアップと利用"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="floatingpoint.html" title="15. 浮動小数点演算、その問題と制限"
+             accesskey="P">前へ</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.12.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python チュートリアル</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">16. </span>付録</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="クイック検索" aria-label="クイック検索" type="search" name="q" id="search-box" />
+          <input type="submit" value="検索" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="appendix">
+<span id="tut-appendix"></span><h1><span class="section-number">16. </span>付録<a class="headerlink" href="#appendix" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="interactive-mode">
+<span id="tut-interac"></span><h2><span class="section-number">16.1. </span>対話モード<a class="headerlink" href="#interactive-mode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="error-handling">
+<span id="tut-error"></span><h3><span class="section-number">16.1.1. </span>エラー処理<a class="headerlink" href="#error-handling" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>エラーが発生すると、インタプリタはエラーメッセージとスタックトレース (stack trace) を出力します。対話モードにいるときは、インタプリタは一次プロンプトに戻ります; スクリプトをファイルから実行しているときは、インタプリタはスタックトレースを出力した後、非ゼロの終了ステータスで終了します。 (<a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> 文の <a class="reference internal" href="../reference/compound_stmts.html#except"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> 節で処理された例外は、ここでいうエラーにはあたりません。) いくつかのエラーは常に致命的であり、非ゼロの終了ステータスとなるプログラムの終了を引き起こします。例えばインタプリタ内部の矛盾やある種のメモリ枯渇が当てはまります。エラーメッセージは全て標準エラー出力に書き込まれます; これに対して、通常は実行した命令から出力される内容は標準出力に書き込まれます。</p>
+<p>割り込み文字 (interrupt character、普通は <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Control</kbd>-<kbd class="kbd docutils literal notranslate">C</kbd></kbd> か <kbd class="kbd docutils literal notranslate">Delete</kbd>) を一次または二次プロンプトに対してタイプすると、入力が取り消されて一次プロンプトに戻ります。 <a class="footnote-reference brackets" href="#id2" id="id1">1</a> コマンドの実行中に割り込み文字をタイプすると <a class="reference internal" href="../library/exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> 例外が送出されます。この例外は <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> 文で処理できます。</p>
+</section>
+<section id="executable-python-scripts">
+<span id="tut-scripts"></span><h3><span class="section-number">16.1.2. </span>実行可能な Python スクリプト<a class="headerlink" href="#executable-python-scripts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>BSD 風の Unix システムでは、Python スクリプトはシェルスクリプトのように直接実行可能にできます。これを行うには、以下の行</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3.5</span>
+</pre></div>
+</div>
+<p>(ここではインタプリタがユーザの <span class="target" id="index-12"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> 上にあると仮定しています) をスクリプトの先頭に置き、スクリプトファイルに実行可能モードを設定します。 <code class="docutils literal notranslate"><span class="pre">#!</span></code> はファイルの最初の２文字でなければなりません。プラットフォームによっては、この最初の行を終端する改行文字が Windows 形式 (<code class="docutils literal notranslate"><span class="pre">'\r\n'</span></code>) ではなく、 Unix形式(<code class="docutils literal notranslate"><span class="pre">'\n'</span></code>)でなければならないことがあります。ハッシュまたはポンド文字、すなわち <code class="docutils literal notranslate"><span class="pre">'#'</span></code> は、Python ではコメントを書き始めるために使われていることに注意してください。</p>
+<p><strong class="program">chmod</strong> コマンドを使えば、スクリプトに実行モードや実行権限を与えることができます。</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>myscript.py
+</pre></div>
+</div>
+<p>Windows では、&quot;実行モード&quot; のような概念はありません。Python のインストーラーは自動的に <code class="docutils literal notranslate"><span class="pre">.py</span></code> ファイルを <code class="docutils literal notranslate"><span class="pre">python.exe</span></code> に関連付けるので、Python ファイルをダブルクリックするとそれをスクリプトとして実行します。<code class="docutils literal notranslate"><span class="pre">.pyw</span></code> 拡張子も(訳注: <code class="docutils literal notranslate"><span class="pre">pythonw.exe</span></code> に)関連付けられ、通常コンソールウィンドウを抑制して実行します。</p>
+</section>
+<section id="the-interactive-startup-file">
+<span id="tut-startup"></span><h3><span class="section-number">16.1.3. </span>対話モード用の起動時実行ファイル<a class="headerlink" href="#the-interactive-startup-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Python を対話的に使うときには、インタプリタが起動する度に実行される何らかの標準的なコマンドがあると便利なことがよくあります。これを行うには、 <span class="target" id="index-13"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONSTARTUP"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONSTARTUP</span></code></a> と呼ばれる環境変数を、インタプリタ起動時に実行されるコマンドが入ったファイル名に設定します。この機能は Unix シェルの <code class="file docutils literal notranslate"><span class="pre">.profile</span></code> に似ています。</p>
+<p>このファイルは対話セッションのときだけ読み出されます。 Python がコマンドをスクリプトから読み出しているときや、 <code class="file docutils literal notranslate"><span class="pre">/dev/tty</span></code> がコマンドの入力元として明示的に指定されている(この場合対話的セッションのように動作します) <em>わけではない</em> 場合にはこのファイルは読み出されません。ファイル内のコマンドは、対話的コマンドが実行される名前空間と同じ名前空間内で実行されます。このため、ファイル内で定義されていたり import されたオブジェクトは、そのまま対話セッション内で使うことができます。また、このファイル内で <code class="docutils literal notranslate"><span class="pre">sys.ps1</span></code> や <code class="docutils literal notranslate"><span class="pre">sys.ps2</span></code> を変更して、プロンプトを変更することもできます。</p>
+<p>もし現在のディレクトリから追加でスタートアップファイルを読み出したいのなら、グローバルのスタートアップファイルの中に <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">os.path.isfile('.pythonrc.py'):</span> <span class="pre">exec(open('.pythonrc.py').read())</span></code> のようなプログラムを書くことができます。スクリプト中でスタートアップファイルを使いたいのなら、以下のようにしてスクリプト中で明示的に実行しなければなりません:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PYTHONSTARTUP&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">filename</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="n">startup_file</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">startup_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-customization-modules">
+<span id="tut-customize"></span><h3><span class="section-number">16.1.4. </span>カスタマイズ用モジュール<a class="headerlink" href="#the-customization-modules" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Python はユーザーが Python をカスタマイズするための2つのフック、 <span class="target" id="index-14"></span>sitecustomize と <span class="target" id="index-15"></span>usercustomize を提供しています。これがどのように動作しているかを知るには、まずはユーザーの site-packages ディレクトリの場所を見つける必要があります。Python を起動して次のコードを実行してください:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">site</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">site</span><span class="o">.</span><span class="n">getusersitepackages</span><span class="p">()</span>
+<span class="go">&#39;/home/user/.local/lib/python3.5/site-packages&#39;</span>
+</pre></div>
+</div>
+<p><code class="file docutils literal notranslate"><span class="pre">usercustomize.py</span></code> をそのディレクトリに作成して、そこでやりたいことをすべて書くことができます。このファイルは自動インポートを無効にする <a class="reference internal" href="../using/cmdline.html#cmdoption-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">-s</span></code></a> オプションを使わない限り、全ての Python の起動時に実行されます。</p>
+<p><span class="target" id="index-16"></span>sitecustomize モジュールも同じように動作しますが、一般的にコンピューターの管理者によって、グローバルの site-packages ディレクトリに作成され、 <span class="target" id="index-17"></span>usercustomize より先にインポートされます。詳細は <a class="reference internal" href="../library/site.html#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> モジュールのドキュメントを参照してください。</p>
+<p class="rubric">脚注</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>GNU Readline パッケージに関する問題のせいで妨げられることがあります。</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../contents.html">目次</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">16. 付録</a><ul>
+<li><a class="reference internal" href="#interactive-mode">16.1. 対話モード</a><ul>
+<li><a class="reference internal" href="#error-handling">16.1.1. エラー処理</a></li>
+<li><a class="reference internal" href="#executable-python-scripts">16.1.2. 実行可能な Python スクリプト</a></li>
+<li><a class="reference internal" href="#the-interactive-startup-file">16.1.3. 対話モード用の起動時実行ファイル</a></li>
+<li><a class="reference internal" href="#the-customization-modules">16.1.4. カスタマイズ用モジュール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="floatingpoint.html"
+                          title="前の章へ"><span class="section-number">15. </span>浮動小数点演算、その問題と制限</a></p>
+  </div>
+  <div>
+    <h4>次のトピックへ</h4>
+    <p class="topless"><a href="../using/index.html"
+                          title="次の章へ">Python のセットアップと利用</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">バグ報告</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/main/Doc/tutorial/appendix.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="../using/index.html" title="Python のセットアップと利用"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="floatingpoint.html" title="15. 浮動小数点演算、その問題と制限"
+             >前へ</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.12.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python チュートリアル</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">16. </span>付録</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="クイック検索" aria-label="クイック検索" type="search" name="q" id="search-box" />
+          <input type="submit" value="検索" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2023, Python Software Foundation.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="/license.html">History and License</a> for more information.<br />
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最終更新: 10月 18, 2023
+    <a href="/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+    <script type="text/javascript" src="../_static/switchers.js"></script>
+  </body>
+</html>
